@@ -13,7 +13,7 @@ const hbs = require('hbs');
 
 
  app.get('/about',(req,res)=> {
-     res.send('About Page');
+     res.render('about.hbs');
  });
 
  app.get('/bad',(req,res)=> {
