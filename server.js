@@ -7,13 +7,18 @@ const hbs = require('hbs');
  app.use(express.static(__dirname + '/public'));
  app.set('view engine','hbs');
 
+ hbs.registerPartials( __dirname + '/views/partials');
+
  app.get('/', (req,res)=> {
     res.send("Hello Express!!!!");
  });
 
 
  app.get('/about',(req,res)=> {
-     res.render('about.hbs');
+     res.render('about.hbs', {
+         pagetitle: 'About Page',
+         currentyear: new Date().getFullYear()
+     });
  });
 
  app.get('/bad',(req,res)=> {
